@@ -1,0 +1,91 @@
+import time
+import turtle
+from random import randint
+window = turtle.Screen()
+window.title('Turtle Race')
+window.bgcolor('forestgreen')
+turtle.color('white')
+turtle.speed(0)
+turtle.penup()
+turtle.setpos(-90, 200)
+turtle.write('Turtle Race', font=('Arial', 30, 'bold'))
+turtle.setpos(-400, -100)
+turtle.color('chocolate')
+turtle.pendown()
+turtle.begin_fill()
+turtle.forward(800)
+turtle.right(90)
+turtle.forward(300)
+turtle.right(90)
+turtle.forward(800)
+turtle.right(90)
+turtle.forward(300)
+turtle.end_fill()
+turtle.penup()
+turtle.setpos(300, 150)
+turtle.color('yellow')
+turtle.pendown()
+turtle.begin_fill()
+turtle.right(90)
+turtle.forward(20)
+turtle.right(90)
+turtle.forward(300)
+turtle.right(90)
+turtle.forward(20)
+turtle.right(90)
+turtle.forward(300)
+turtle.end_fill()
+turtle.penup()
+turtle.hideturtle()
+turtle1 = turtle.Turtle(shape='turtle')
+turtle1.speed(0)
+turtle1.color('black')
+turtle1.penup()
+turtle1.goto(-250, 100)
+turtle1.pendown()
+turtle2 = turtle.Turtle(shape='turtle')
+turtle2.speed(0)
+turtle2.color('cyan')
+turtle2.penup()
+turtle2.goto(-250, 50)
+turtle2.pendown()
+turtle3 = turtle.Turtle(shape='turtle')
+turtle3.speed(0)
+turtle3.color('red')
+turtle3.penup()
+turtle3.goto(-250, 0)
+turtle3.pendown()
+turtle4 = turtle.Turtle(shape='turtle')
+turtle4.speed(0)
+turtle4.color('magenta')
+turtle4.penup()
+turtle4.goto(-250, -50)
+turtle4.pendown()
+while True:
+	turtle1.forward(randint(1, 8))
+	turtle2.forward(randint(1, 8))
+	turtle3.forward(randint(1, 8))
+	turtle4.forward(randint(1, 8))
+	if turtle1.pos()[0] >= 300 or turtle2.pos()[0] >= 300 or turtle3.pos()[0] >= 300 or turtle4.pos()[0] >= 300:
+		break
+
+def win(msg):
+    turtle.color(msg)
+    turtle.speed(0)
+    turtle.penup()
+    turtle.setpos(-40, 150)
+    turtle.write(msg, font=('Arial', 20, 'bold'))
+
+if turtle1.pos()[0] >= 300:
+    win(turtle1.color()[0])
+
+if turtle2.pos()[0] >= 300:
+    win(turtle2.color()[0])
+
+if turtle3.pos()[0] >= 300:
+    win(turtle3.color()[0])
+
+if turtle4.pos()[0] >= 300:
+    win(turtle4.color()[0])
+
+turtle.mainloop()
